@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins:wght@100;300&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main-container">
+    <div id="video-container">
+      <video id="video-player">
+      <!--<source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" alt=""> -->
+        <!-- <source src="https://v3.cdnpk.net/videvo_files/video/free/2014-12/large_watermarked/Raindrops_Videvo_preview.mp4""> -->
+        <source src="./assets/In The End - Linkin Park_480p.mp4">
+      </video>
+      <div class="controls-container">
+        <div class="time-slider-container">
+        <input type="range" class="" id="time-slider" min="1" max="100" value="0">
+        </div>
+        <div class="left-side">
+          <button id="resumePause">
+            <img src="./assets/imgs/pause-solid.svg">
+          </button>
+          <div class="time-container">
+          <span class="current-time"></span>
+          <span class="time-separator"> / </span>
+          <span class="video-duration"></span>
+          </div>
+        </div>
+        <div class="right-side">
+          <button id="mute">
+            <img src="./assets/imgs/sound-off.svg">
+          </button>
+          <div class="slider-container">
+            <input id="slider-range" class="slider" type="range" orient="vertical" min="0" max="100" value="50" >
+          </div>           
+          <button id="playback-settings-btn" class="manage-playback-button" alt="">
+            <img src="./assets/imgs/settings.svg">
+            <ul class="playback-rate-container hidden noTransition">
+              <li class="playback-rate-btn">0.25x</li>
+              <li class="playback-rate-btn">0.50x</li>
+              <li class="playback-rate-btn">0.75x</li>
+              <li class="playback-rate-btn">Normal</li>
+              <li class="playback-rate-btn">1.50x</li>
+              <li class="playback-rate-btn">1.75x</li>
+              <li class="playback-rate-btn">2.00x</li>
+            </ul>
+          </button>
+          <button class="fullscreen">
+            <img src="./assets/imgs/maximize.svg">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./src/index.js"></script>
+</body>
+</html>

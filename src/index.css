@@ -1,0 +1,262 @@
+:root {
+  --text-color: #f2f2f2f2;
+  --accent-color: #07b4d7;
+  --sliders-color: #d3d3d3;
+}
+
+*, html {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  background-color: rgb(25 ,25, 50)
+}
+
+#video-container {
+  display: flex;
+  position: relative;
+  max-width: 60rem;
+  line-height: 0;
+}
+
+#video-player {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.controls-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 0.125rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3.25rem;
+  background-color: rgba(25, 25, 40, 0.3);
+}
+
+/* Controls Container Sides*/
+.left-side, .right-side {
+  height: 3rem;
+}
+
+.left-side {
+  justify-content: flex-start;
+}
+
+.right-side {
+  justify-content: flex-end;
+}
+
+
+.time-container {
+  height: 100%;
+  padding: 0 0.5rem
+}
+
+.time-slider-container {
+  width: 100%;
+  margin: 0 auto;
+  align-self: flex-start;
+  padding: 0 0.5rem;
+}
+
+.slider-container, .time-slider-container, .time-container, .left-side, .right-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Volume container */
+.slider-container {
+  width: 2rem;
+  padding: 0 2rem 0 1rem
+}
+
+
+/* The slider itself */
+.slider, #time-slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  /* height: 2rem; Specified height */
+  background: var(--sliders-color); /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.6; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+#time-slider {
+  height: 0.25rem;
+  width: 100%;
+}
+
+.slider {
+  background: linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 50%, var(--sliders-color) 50%, var(--sliders-color) 100%);
+}
+
+/* Mouse-over effects */
+.slider:hover, #time-slider:hover{
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb, #time-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 0.7rem; /* Set a specific slider handle width */
+  height: 0.7rem; /* Slider handle height */
+  background: var(--accent-color); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 0.7rem;
+}
+
+.slider::-moz-range-thumb, #time-slider.slider::-moz-range-thumb {
+  width: 0.6rem; /* Set a specific slider handle width */
+  height: 0.6rem; /* Slider handle height */
+  background: var(--accent-color); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider {
+  height: 0.5rem;
+  width: 4rem;
+  border-radius: 0.5rem;
+}
+
+#time-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 0.25rem; /* Set a specific slider handle width */
+  height: 0.25rem; /* Slider handle height */
+  background: var(--accent-color); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  /* border-radius: 0.7rem; */
+
+}
+
+.manage-playback-button {
+  width: 3rem;
+  position: relative;
+}
+
+/* Styling Buttons */
+#resumePause,
+#mute, 
+.manage-playback-button,
+button.fullscreen {
+  height: 100%;
+  width: 3rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 0;
+}
+
+#resumePause {
+  padding-left: 0.75rem;
+}
+
+.fullscreen {
+  padding-right: 0.75rem;
+}
+
+/* Styling Button Images */
+#resumePause img,
+#mute img,
+.manage-playback-button img,
+button.fullscreen img {
+  width: 1.5rem;
+  opacity: 0.8;
+  transition: opacity .2s;
+}
+
+/* Playback Settings */
+.playback-rate-container {
+  position: absolute;
+  top: -13.5rem;
+  left: 0;
+  line-height: normal;
+}
+
+#resumePause:hover img,
+#mute:hover img,
+.manage-playback-button:hover img,
+.fullscreen:hover img {
+  opacity: 1;
+}
+
+.playback-rate-container {
+  background-color: var(--sliders-color);
+  border-radius: 0.5rem;
+  list-style: none;
+  padding-inline-start: 0;
+  cursor: pointer;
+}
+
+.playback-rate-container .playback-rate-btn:hover {
+  background-color: var(--accent-color);
+  text-align: center;
+}
+
+.playback-rate-container li.playback-rate-btn {
+  padding: 0.375rem 1.25rem;
+}
+
+.playback-rate-container :first-child {
+  border-radius: 0.5rem 0.5rem 0 0
+}
+
+.playback-rate-container :last-child {
+  border-radius: 0 0 0.5rem 0.5rem
+}
+
+.current-time, .time-separator, .video-duration {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  /* width: 20px; */
+  /* padding: 0 0.25rem; */
+}
+
+.current-time, .video-duration {
+  width: 50px;
+  text-align: center;
+}
+
+.time-separator {
+  padding: 0 0.25rem;
+}
+
+/* span.current-time {
+  color: var(--text-color);
+} */
+
+.hidden {
+  display: none;
+}
+
